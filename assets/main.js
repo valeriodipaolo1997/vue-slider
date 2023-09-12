@@ -14,25 +14,40 @@ createApp({
                 {
                     image: './assets/img/01.webp',
                     title: 'Marvel\'s Spiderman Miles Morale',
-                    text: 'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
+                    text: 'Spider-Man è un film di genere azione del 2002, diretto da Sam Raimi, con Tobey Maguire e Willem Dafoe. Uscita al cinema il 07 giugno 2002. Durata 121 minuti. Distribuito da Columbia Tristar',
                 }, {
                     image: './assets/img/02.webp',
                     title: 'Ratchet & Clank: Rift Apart',
-                    text: 'Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.',
+                    text: 'Ratchet & Clank è una serie di videogiochi platform-adventure sviluppati da Insomniac Games e pubblicati da Sony Computer Entertainment. Al 2021 la serie conta nove capitoli principali, tra cui la saga principale dall originale per PS2 a quella Future e dei Lombax',
                 }, {
                     image: './assets/img/03.webp',
                     title: 'Fortnite',
-                    text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+                    text: "Fortnite è un videogioco sparatutto in terza persona del 2017, sviluppato da People Can Fly e pubblicato da Epic Games per console e PC. Il gioco presenta tre modalità distinte che condividono lo stesso motore grafico: Salva il mondo, Modalità creativa e Battaglia reale",
                 }, {
                     image: './assets/img/04.webp',
                     title: 'Stray',
-                    text: 'Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city',
+                    text: 'Stray è un gioco di azione e avventura in cui il giocatore assume il personaggio in terza persona di un gatto randagio che si imbatte in una misteriosa città murata1. Il gioco è ambientato in una città cibernetica decadente e illuminata al neon',
                 }, {
                     image: './assets/img/05.webp',
                     title: "Marvel's Avengers",
-                    text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
+                    text: 'Gli Avengers sono un immaginario team di supereroi, protagonisti nel media franchise del Marvel Cinematic Universe (MCU), basati sull omonima squadra della Marvel Comics creata da Stan Lee e Jack Kirby nel 1963. Fondato da Nick Fury, direttore dello S.H.I.E.L.D.',
                 }
             ]
         };
-    }
+    },
+
+    methods:{
+        nextImage() {
+            this.activeImage++;
+            if(this.activeImage > this.slides.length - 1) {
+                this.activeImage = 0;
+            }
+        },
+        prevImage() {
+            this.activeImage--;
+            if(this.activeImage < 0) {
+                this.activeImage = this.slides.length - 1;
+            }
+        }
+    } 
 }).mount('#app');
