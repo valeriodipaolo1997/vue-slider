@@ -7,6 +7,10 @@ Bonus: 1- al click su una thumb, visualizzare in grande l'immagine corrispondent
  const { createApp } = Vue;
 
 createApp({
+
+
+
+
     data() {
         return {
             activeImage: 0,
@@ -37,13 +41,13 @@ createApp({
     },
 
     methods:{
-        nextImage() {
+        next() {
             this.activeImage++;
             if(this.activeImage > this.slides.length - 1) {
                 this.activeImage = 0;
             }
         },
-        prevImage() {
+        prev() {
             this.activeImage--;
             if(this.activeImage < 0) {
                 this.activeImage = this.slides.length - 1;
@@ -55,7 +59,25 @@ createApp({
 
       this.activeImage = this.slides.indexOf(item)
 
+    },
+
+
+    stopPlay () {
+        clearInterval(this.stopInterval)
+    } ,
+
+    play () {
+        this.stopInterval = setInterval(this.next, 3000)
     }
+},
+
+created() {
+    this.play() 
+}
     
-    } 
+    
+
+    
+    
+    
 }).mount('#app');
